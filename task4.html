@@ -13,18 +13,36 @@
 //     在动画结束后，按钮状态恢复，且文字变成“淡入”
 // 在 按钮显示 淡入 的状态时，点击按钮，开始一个“淡入”（逐渐出现）的动画，和上面类似按钮不可点，直到透明度完全不透明
 //     淡入动画结束后，按钮文字变为“淡出”
-    document.getElementById("fade-btn").onclick=function(){
+    var timer;
+    var timer1;
+var fadeBtn = document.getElementById("fade-btn");
+var fadeObj = document.getElementById("fade-obj");
 
-        function change(){
-
-            for(var i=10;i=0;i--){
-                document.getElementById("fade-obj").style.opacity=(i/10);
-
+    fadeBtn.onclick=function(){
+    if(fadeBtn.innerHTML == '淡出') {
+        var num=100;
+        timer = setInterval(function () {
+            num--;
+            fadeBtn.innerText = "淡入";
+            fadeObj.style.opacity = num / 100;
+            if (num <= 0) {
+                clearInterval(timer);
             }
-            document.getElementById("fade-btn").innerText="淡入"
-       }
-      window.setInterval(change(),5000);
 
+        }, 10)
+    }else if(fadeBtn.innerHTML == '淡入'){
+        var  num=0;
+        timer1 = setInterval(function () {
+
+            num++;
+            fadeBtn.innerText = "淡出";
+            fadeObj.style.opacity = num / 100;
+            if (num>100) {
+                clearInterval(timer1);
+            }
+
+        }, 10)
+    }
 
     }
 </script>
