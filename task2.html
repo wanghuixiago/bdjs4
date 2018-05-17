@@ -34,25 +34,19 @@
 
     // 当用户选择了 School 的单选框时，显示 School 的下拉选项，隐藏 Company 的下拉选项
     // 当用户选择了 School 的单选框时，显示 Company 的下拉选项，隐藏 School 的下拉选项
-window.onload=function () {
 
+        var  oInput = document.getElementsByTagName("input");
+    var  select1 = document.getElementById("school-select");
+    var select2 = document.getElementById("company-select");
 
-
-        var chance = document.getElementsByClassName("input");
-
-        for (var i = 0; i < chance.length; i++) {
-            chance[i].onclick = function () {
-                if (chance[i].value == "School") {
-                    var select1 = document.getElementById("school-select");
+                oInput[0].onclick = function () {
+                    select2.style.cssText = "display:none";
                     select1.style.cssText = "display:block";
-                } else {
-                    var select2 = document.getElementById("company-select");
-                    select2.style.cssText = "display:block";
                 }
-            }
-        }
-    }
 
-
+                 oInput[1].onclick = function () {
+                    select1.style.cssText = "display:none";
+                    select2.style.cssText = "display:block";
+                
 </script>
 </html>
