@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cut{
+            width:480px;
+            height:480px;
+         background: url("a.jpg") no-repeat center;
+        }
+</style>
+</head>
+<body>
+<div class="cut">
+
+</div>
+
+    <script type="text/javascript">
+        var smileImgEle = document.querySelector('.cut'),
+        		maxNum = 8160,
+        			num = 0,
+            setIntervalActor;
+
+        	var imgActor = function(){
+        		setIntervalActor = setInterval(function(){
+            			smileImgEle.style.backgroundPositionY = -num + 'px';
+            			num = num + 480;
+
+            if(num == maxNum){
+                clearInterval(setIntervalActor);
+                		smileImgEle.style.backgroundPositionY = num = 0;
+                			imgActor();
+            }
+        },80);
+        };
+        imgActor();
+
+</script>
+</body>
+</html>
